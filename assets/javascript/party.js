@@ -21,7 +21,7 @@ $(document).ready(function() {
     if(form.parsley().isValid()) {
 
       //Whatever happens when the form is valid
-      
+
       var firstName = $('#first-name-input'),
           lastName = $('#last-name-input'),
           email = $('#email-input'),
@@ -31,7 +31,7 @@ $(document).ready(function() {
      
 
     } else {
-      alert("Invalid Form");
+      alert("Invalid Form");//This can't really happen, but I put it in there anyway
     }
   });
   
