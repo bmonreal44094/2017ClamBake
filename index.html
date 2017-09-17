@@ -4,13 +4,24 @@
 	<title>2017 Halloween Clambake</title>
 
 	<!-- Bootstrap 3.3.6 -->
-	<link href="assets/css/bootstrap.min3.3.6.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
     <!--Bootswatch Cyborg-->
     <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cyborg/bootstrap.min.css">
 
+    <!--Parsley plugin styling-->
+    <link rel="stylesheet" type="text/css" href="assets/css/parsley.css">
+
     <!--My CSS Override of Bootstrap and Bootswatch-->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="assets/javascript/parsley.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
 
 </head>
@@ -30,41 +41,41 @@
 		        </div>
 		        <div class="panel-body">
 		          <!-- Entry Form -->
-		          <form name="sign-up-form">
+		          <form name="sign-up-form" data-parsley-validate="">
 
 		            <div class="form-group">
-		              <label for="first-name-input">First Name (Required)</label>
-		              <input name="first-name" class="form-control" id="first-name-input" type="text">
+		              <label for="first-name-input">First Name * :</label>
+		              <input name="first-name" class="form-control" id="first-name-input" type="text" required="">
 		            </div>
 
 		            <div class="form-group">
-		              <label for="last-name-input">Last Name (Required)</label>
-		              <input name="last-name" class="form-control" id="last-name-input" type="text">
+		              <label for="last-name-input">Last Name * :</label>
+		              <input name="last-name" class="form-control" id="last-name-input" type="text" required="">
 		            </div>
 					
 					<div class="form-group">
-		              <label for="email-input">Email (Required)</label>
-		              <input class="form-control" id="email-input" type="text">
+		              <label for="email-input">Email * :</label>
+		              <input class="form-control" id="email-input" type="email" required="" data-parsley-trigger="change">
 		            </div>         
 
 		            <div class="form-group">
 		              <label for="phone-input">Phone Number</label>
-		              <input class="form-control" id="phone-input" type="text" placeholder="(###)###-####">
+		              <input class="form-control" id="phone-input" type="text" placeholder="(###)###-####" data-parsley-pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/" data-parsley-trigger="change">
 		            </div>
 
 		            <div class="form-group">
 		              <label for="steak-bakes-input1">Steak Bakes</label>
-		              <input class="form-control" id="steak-bakes-input1" type="number" min="0" max="10" placeholder="Enter number of steak bakes">
+		              <input class="form-control" id="steak-bakes-input1" type="number" min="0" max="10" placeholder="Enter number of steak bakes" data-parsley-range="[0,9]">
 		            </div>
 
 		            <div class="form-group">
 		              <label for="chicken-bakes-input1">Chicken Bakes</label>
-		              <input class="form-control" id="chicken-bakes-input1" type="number" min="0" max="10" placeholder="Enter number of chicken bakes">
+		              <input class="form-control" id="chicken-bakes-input1" type="number" min="0" max="10" placeholder="Enter number of chicken bakes" data-parsley-range="[0,9]">
 		            </div>
 
 		            <div class="form-group">
 		              <label for="extra-clams-input1">Extra Clams</label>
-		              <input class="form-control" id="extra-clams-input1" type="number" min="0" max="10" placeholder="Enter number of extra dozen clams">
+		              <input class="form-control" id="extra-clams-input1" type="number" min="0" max="10" placeholder="Enter number of extra dozen clams" data-parsley-range="[0,9]">
 		            </div>
 
 		            <button class="btn btn-primary" id="bake-order-btn" type="submit">Submit</button>
@@ -112,7 +123,7 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <!-- Code to the Javascript File -->
-<script src="assets/scripts/party.js"></script>
+<script src="assets/javascript/party.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
 
 </body>
