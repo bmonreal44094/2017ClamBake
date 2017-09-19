@@ -1,3 +1,15 @@
-.jumbotron {
-	font-size: 16px;
+#title {
+	font-size: 40px;
+	color: white;
+}
+
+.notice {
+	color: #E7FF33;
+	text-align: center;
+}
+#body-background-img {
+  min-height: 800px;
+  background-color: black;
+  background-image: url("../assets/images/tent.jpg");
+  background-repeat: no-repeat;
 }

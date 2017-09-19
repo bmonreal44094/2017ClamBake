@@ -23,16 +23,19 @@
 
 	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 
 </head>
-<body>
+<body id="body-background-img">
 
 <div class="container">
 	<div class="container">
 
-		<div class="jumbotron">
-	    	<h1 class="text-center">2017 Monreal Halloween Clambake Party</h1>
+		<div>
+	    	<h1 class="text-center" id="title">2017 Monreal Halloween Clambake Party</h1>
 	 	</div>
+	 	<p class="notice">Your registration is not completed until you have paid in full!  Please look at the emial that comes after filling this out and submitting.</p>
 		<div class="row">
 			<div class="col-xs-8">
 		      	<div class="panel panel-primary">
@@ -92,25 +95,29 @@
 
 			        <div class="form-group">
 		              <label for="steak-bakes-cost">Steak Bakes</label>
-		              <h5 class="steak-bakes-qty"></h5>
-		              <h5 class="steak-bakes-ttl"></h5>
+		              <h5 id="steak-bakes-qty"></h5>
+		              <h5 id="steak-bakes-ttl"></h5>
 		            </div>
 
 		           	<div class="form-group">
 		              <label for="chicken-bakes-cost">Chicken Bakes</label>
-		              <h5 class="chicken-bakes-qty"></h5>
-		              <h5 class="chicken-bakes-ttl"></h5>
+		              <h5 id="chicken-bakes-qty"></h5>
+		              <h5 id="chicken-bakes-ttl"></h5>
 		            </div>
 
 		            <div class="form-group">
 		              <label for="extra-clams-cost">Extra Clams</label>
-		              <h5 class="extra-clams-qty"></h5>
-		              <h5 class="extra-clams-ttl"></h5>
+		              <h5 id="extra-clams-qty"></h5>
+		              <h5 id="extra-clams-ttl"></h5>
 		            </div>
 
 		           	<div class="form-group">
 		              <label for="total-cost">Total</label>
-		              <h5 class="total-ttl"></h5>
+		              <h5 id="total-ttl"></h5>
+		            </div>
+
+		            <div>
+		            	<a href="paypal.me/BMonreal">Pay Via PayPal</a>
 		            </div>
 
 		        <div class="panel-body">
