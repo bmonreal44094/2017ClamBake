@@ -21,7 +21,9 @@
 
 	<script type="text/javascript" src="assets/javascript/parsley.js"></script>
 
-	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
@@ -29,15 +31,19 @@
 </head>
 <body id="body-background-img">
 
+<div id="body-background-img">
 <div class="container">
 	<div class="container">
 
 		<div>
 	    	<h1 class="text-center" id="title">2017 Monreal Halloween Clambake Party</h1>
 	 	</div>
+	 	<p class="well well-sm info-notice">You do not need to order a meal in order to attend.  Please register either way so that I have your email and phone number for future invites.<br>Doors open at 6PM, Food Serverd at 7PM.  Most people that aren't eating come around 8PM but feel free to come any time after 6PM.</p>
+
 	 	<p class="notice">Your registration is not completed until you have paid in full!  Please look at the emial that comes after filling this out and submitting.</p>
+
 		<div class="row">
-			<div class="col-xs-8">
+			<div class="col-xs-7">
 		      	<div class="panel panel-primary">
 		        <div class="panel-heading">
 		          <h3 class="panel-title"><strong>Register</strong></h3>
@@ -58,7 +64,7 @@
 					
 					<div class="form-group">
 		              <label for="email-input">Email * :</label>
-		              <input class="form-control" id="email-input" type="email" required="" data-parsley-trigger="change">
+		              <input class="form-control" id="email-input" type="email" placeholder="wan@valdez.com" required="" data-parsley-trigger="change">
 		            </div>         
 
 		            <div class="form-group">
@@ -67,17 +73,17 @@
 		            </div>
 
 		            <div class="form-group">
-		              <label for="steak-bakes-input1">Steak Bakes</label>
+		              <label for="steak-bakes-input1">Steak Bakes - $46/Each</label>
 		              <input class="form-control" id="steak-bakes-input1" type="number" min="0" max="10" placeholder="Enter number of steak bakes" data-parsley-range="[0,9]">
 		            </div>
 
 		            <div class="form-group">
-		              <label for="chicken-bakes-input1">Chicken Bakes</label>
+		              <label for="chicken-bakes-input1">Chicken Bakes - $38/Each</label>
 		              <input class="form-control" id="chicken-bakes-input1" type="number" min="0" max="10" placeholder="Enter number of chicken bakes" data-parsley-range="[0,9]">
 		            </div>
 
 		            <div class="form-group">
-		              <label for="extra-clams-input1">Extra Clams</label>
+		              <label for="extra-clams-input1">Extra Clams - $10/Each</label>
 		              <input class="form-control" id="extra-clams-input1" type="number" min="0" max="10" placeholder="Enter number of extra dozen clams" data-parsley-range="[0,9]">
 		            </div>
 
@@ -87,11 +93,52 @@
             	</div>
           		</div>
         	</div>
-       		<div class="col-xs-4">
+       		<div class="col-xs-5">
        			<div class="panel panel-primary">
 			        <div class="panel-heading">
 			          <h3 class="panel-title"><strong>Cost</strong></h3>
 			        </div>
+
+
+			        <div class="panel-body">
+
+				        <div class="form-group">
+			              <label for="steak-bakes-cost">Steak Bakes</label>
+			              <h5 id="steak-bakes-qty"></h5>
+			              <h5 id="steak-bakes-ttl"></h5>
+			            </div>
+
+			           	<div class="form-group">
+			              <label for="chicken-bakes-cost">Chicken Bakes</label>
+			              <h5 id="chicken-bakes-qty"></h5>
+			              <h5 id="chicken-bakes-ttl"></h5>
+			            </div>
+
+			            <div class="form-group">
+			              <label for="extra-clams-cost">Extra Clams</label>
+			              <h5 id="extra-clams-qty"></h5>
+			              <h5 id="extra-clams-ttl"></h5>
+			            </div>
+
+			           	<div class="form-group">
+			              <label for="total-cost">Total</label>
+			              <h5 id="total-ttl"></h5>
+			            </div>
+
+			            <div>
+			            	<a href="http://paypal.me/BMonreal" target="_blank">Pay Via PayPal</a>
+			            	<p class="payment-notice">Or send/drop off a check or cash to 38510 Old Willoughby Drive, Willoughby, Ohio 44094</p>
+			            	<p class="payment-notice">This shouldn't need to be said but we are not responsible for lost checks or cash that were not handed to someone in our household.</p>
+			            	<ul class="list-group-item list-group-item-heading">Bakes Include:
+			            		<li class="list-group-item">Protien (8oz Filet or 1/2 Chicken)</li>
+			            		<li class="list-group-item">Homemade Clam Chowder</li>
+			            		<li class="list-group-item">Sweet Potatoe, Sweet Corn, Coleslaw, Role and Butter</li>
+			               		<li class="list-group-item">One Dozen Middle Neck Clams</li>
+			            		<p class="foot-note">You don't have to take clams if you don't want them but there is no discount on meals for not taking them</p>
+			            	</ul>
+			            </div>
+
+		        	</div>
 
 			        <div class="form-group">
 		              <label for="steak-bakes-cost">Steak Bakes</label>
@@ -120,10 +167,13 @@
 		            	<a href="paypal.me/BMonreal">Pay Via PayPal</a>
 		            </div>
 
-		        <div class="panel-body">
+
+		        </div>
        		</div>
       	</div>
+      	<p class="well well-sm important-notice">IF YOU ARE ORDERING DINNER - Your REGISTRATION is NOT COMPLETE until you have PAID IN FULL!</p>
     </div>
+</div>
 </div>
 
 <!-- jQuery JS -->
