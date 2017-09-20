@@ -1,3 +1,44 @@
-.jumbotron {
-	font-size: 16px;
+#title {
+	font-size: 50px;
+	color: white;
+}
+
+.important-notice {
+	color: #E7FF33;
+	text-align: center;
+	font-size: 18px;
+}
+
+.info-notice {
+	color: white;
+	text-align: center;
+}
+
+#body-background-img {
+	min-height: 2000px;
+	min-width: 1500px;
+	background-color: black;
+	background-image: url("../images/tent.jpg");
+	background-repeat: no-repeat;
+	margin: 50px;
+}
+
+.form-group {
+	/*padding: 20px;*/
+}
+
+.foot-note {
+	font-size: 10px;
+}
+
+.list-group-item-heading {
+	color: white;
+}
+
+label {
+	color: white;
+}
+
+.payment-notice {
+	color: white;
 }
