@@ -1,6 +1,7 @@
 // Initialize Firebase
 var bake = {
   steakBakePrice : 46,
+  steakBakePrice : 44,
   chickenBakePrice : 38,
   extraClamsPrice : 10,
   steakBake:0,
@@ -11,6 +12,15 @@ var bake = {
     bake.total = bake.steakBake * bake.steakBakePrice
     + bake.chickenBake* bake.chickenBakePrice     + bake.extraClams * bake.extraClamsPrice;
   },
+
+};
+var config = {
+  apiKey: "AIzaSyBPXIhY9DdtCYf-y4q3GYLz_giViRoRAxc",
+  authDomain: "clambake-88288.firebaseapp.com",
+  databaseURL: "https://clambake-88288.firebaseio.com",
+  projectId: "clambake-88288",
+  storageBucket: "",
+  messagingSenderId: "1041369538927"
 
 };
 var config = {
@@ -61,6 +71,22 @@ $("#bake-order-btn").click(function(event){
 	};
 	//console.log(database);
 	database.ref().child(userName).set(newAttendee);
+
+    //Whatever happens when the form is valid
+    var firstName = $('#first-name-input').val();
+    var lastName = $('#last-name-input').val();
+    var email = $('#email-input').val();
+    var phone = $('#phone-input').val();
+    // var steakBakes = parseInt($("#steak-bakes-input1").val());
+    // var chickenBakes = parseInt($("#chicken-bakes-input1").val());
+    // var extraClams = parseInt($("#extra-clams-input1").val());
+    // // var steakBakePrice = 44;
+    // var chickenBakePrice = 38;
+    // var extraClamsPrice = 10;
+    // var steakBakeTTL = steakBakes * steakBakePrice;
+    // var chickenBakeTTL = chickenBakes * chickenBakePrice;
+    // var extraClamsTTL = extraClams * extraClamsPrice;
+    // var totalTTL = steakBakeTTL + chickenBakeTTL + extraClamsTTL
 
 
 //ONCE THE REST IS WORKING UNCOMMNET THIS SECTION
