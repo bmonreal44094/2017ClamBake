@@ -1,9 +1,14 @@
-// Initialize Firebase
+
 var bake = {
   steakBakePrice : 46,
   chickenBakePrice : 38,
   extraClamsPrice : 10,
   steakBake:0,
+  rare:0,
+  medRare:0,
+  medium:0,
+  medWell:0,
+  well:0,
   chickenBake:0,
   extraClams:0,
   total:0,
@@ -12,6 +17,7 @@ var bake = {
     + bake.chickenBake* bake.chickenBakePrice     + bake.extraClams * bake.extraClamsPrice;
   },
 
+// Initialize Firebase
 };
 var config = {
     apiKey: "AIzaSyBPXIhY9DdtCYf-y4q3GYLz_giViRoRAxc",
@@ -24,42 +30,41 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-$("#bake-order-btn").click(function(event){
-    event.preventDefault();
-//     console.log(1);
-// });
+$("#sign-up-form-id").on('submit', function(event) {
+  event.preventDefault();
 
-// $("#sign-up-form").on('submit', function(event) {
-//   event.preventDefault();
+  form = $(this);
+  form.parsley().validate();
 
-  // form = $("#sign-up-form");
-  // console.log(form);
-  // form.parsley().validate();
 
-  // if(form.parsley().isValid()) {
+  if(form.parsley().isValid()) {
 
-    //Whatever happens when the form is valid
     var firstName = $('#first-name-input').val().trim();
     var lastName = $('#last-name-input').val().trim();
     var email = $('#email-input').val().trim();
     var phone = $('#phone-input').val().trim();
     var userName = lastName  + "-" + firstName;
-    console.log(userName);
+    bake.rare = $("#rare").find(":selected").text();
+    bake.medRare = $("#med-rare").find(":selected").text();
+    bake.medium = $("#medium").find(":selected").text();
+    bake.medWell = $("#med-well").find(":selected").text();
+    bake.well = $("#well").find(":selected").text();
 
     var newAttendee = {
-    	steakBakePrice : bake.steakBakePrice,
-		steakBake: bake.steakBake,
-		chickenBake: bake.chickenBake,
-		chickenBakePrice : bake.chickenBakePrice,
-		extraClams: bake.extraClams,
-		extraClamsPrice : bake.extraClamsPrice,
-		total: bake.total,
-		firstName : firstName,
+  		steakBake: bake.steakBake,
+      rare: bake.rare,
+      medRare: bake.medRare,
+      medium: bake.medium,
+      medWell: bake.medWell,
+      well: bake.well,
+  		chickenBake: bake.chickenBake,
+  		extraClams: bake.extraClams,
+  		total: bake.total,
+  		firstName : firstName,
     	lastName : lastName,
     	email : email,
     	phone : phone,
 	};
-	//console.log(database);
 	database.ref().child(userName).set(newAttendee);
 
 
@@ -80,32 +85,39 @@ $("#bake-order-btn").click(function(event){
     //     total_price:totalTTL,
     //});
 
-     // window.location.reload(false); 
+     window.location.reload(false); 
 //   } else {
 //      alert("Invalid Form");//This can't really happen, but I put it in there anyway
-//    }
+   }
  });
 
 $("#steak-bakes-input1").on("change keyup paste", function(){
     bake.steakBake = parseInt($("#steak-bakes-input1").val());
-    bake.TotalSum();
-    $("#steak-bakes-qty").text("Bakes: " + bake.steakBake);
-    $("#steak-bakes-ttl").text("Steak Total: $" + bake.steakBake*bake.steakBakePrice);
-    $("#total-ttl").text("$" + bake.total);
-    });
+    if (bake.steakBake > 0) {
+      $("#steak-temp").removeClass("hide");
+      bake.TotalSum();
+      $("#steak-bakes-qty").text("Bakes: " + bake.steakBake);
+      $("#steak-bakes-ttl").text("Steak Total: $" + bake.steakBake*bake.steakBakePrice);
+      $("#total-ttl").text("$" + bake.total);
+    }
+});
 
 $("#chicken-bakes-input1").on("change keyup paste", function(){
     bake.chickenBake = parseInt($("#chicken-bakes-input1").val());
-    bake.TotalSum();
-    $("#chicken-bakes-qty").text("Bakes: " + bake.chickenBake);
-    $("#chicken-bakes-ttl").text("Chicken Total: $" + bake.chickenBake*bake.chickenBakePrice);
-    $("#total-ttl").text("$" + bake.total);
-    });
+    if (bake.chickenBake > 0) {
+      bake.TotalSum();
+      $("#chicken-bakes-qty").text("Bakes: " + bake.chickenBake);
+      $("#chicken-bakes-ttl").text("Chicken Total: $" + bake.chickenBake*bake.chickenBakePrice);
+      $("#total-ttl").text("$" + bake.total);
+    }
+});
 
 $("#extra-clams-input1").on("change keyup paste", function(){
     bake.extraClams = parseInt($("#extra-clams-input1").val());
-    bake.TotalSum();
-    $("#extra-clams-qty").text("Extra Dozen Clams: " + bake.extraClams);
-    $("#extra-clams-ttl").text("Extra Clam Total: $" + bake.extraClams*bake.extraClamsPrice);
-    $("#total-ttl").text("$" + bake.total);
-    });
+    if (bake.extraClams > 0) {
+      bake.TotalSum();
+      $("#extra-clams-qty").text("Extra Dozen Clams: " + bake.extraClams);
+      $("#extra-clams-ttl").text("Extra Clam Total: $" + bake.extraClams*bake.extraClamsPrice);
+      $("#total-ttl").text("$" + bake.total);
+    }
+});
