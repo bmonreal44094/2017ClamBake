@@ -56,18 +56,18 @@ $("#sign-up-form-id").on('submit', function(event) {
     else {
       var newAttendee = {
     		steakBake: bake.steakBake,
-        rare: bake.rare,
-        medRare: bake.medRare,
-        medium: bake.medium,
-        medWell: bake.medWell,
-        well: bake.well,
+        steakRare: bake.rare,
+        steakMedRare: bake.medRare,
+        steakMedium: bake.medium,
+        steakMedWell: bake.medWell,
+        steakWell: bake.well,
     		chickenBake: bake.chickenBake,
     		extraClams: bake.extraClams,
     		total: bake.total,
-    		firstName : firstName,
-      	lastName : lastName,
-      	email : email,
-      	phone : phone,
+    		userFirstName : firstName,
+      	userLastName : lastName,
+      	userEmail : email,
+      	userPhone : phone,
   	 };
 	   database.ref().child(userName).set(newAttendee);
 
