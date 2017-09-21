@@ -18,7 +18,7 @@ var bake = {
     bake.steakBakeTTL = bake.steakBake * bake.steakBakePrice;
     bake.chickenBakeTTL = bake.chickenBake * bake.chickenBakePrice;
     bake.extraClamsTTL = bake.extraClams * bake.extraClamsPrice
-    bake.total = steakBakeTTL + chickenBakeTTL + extraClamsTTL;
+    bake.total = bake.steakBakeTTL + bake.chickenBakeTTL + bake.extraClamsTTL;
   },
 
 // Initialize Firebase
@@ -57,7 +57,7 @@ $("#sign-up-form-id").on('submit', function(event) {
     bake.well = $("#well").find(":selected").text();
     sumSteakBakes = parseFloat(bake.rare) + parseFloat(bake.medRare) + parseFloat(bake.medium) + parseFloat(bake.medWell) + parseFloat(bake.well);
     if (parseFloat(sumSteakBakes) !== parseFloat(bake.steakBake)) {
-      alert("Your Steak and Cooking Temp QTY's are off.  Double check them please!")
+     	alert("Your Steak and Cooking Temp QTY's are off.  Double check them please!")
     }
     //Submits data to the database
     else {
@@ -112,7 +112,7 @@ $("#steak-bakes-input1").on("change keyup paste", function(){
       $("#steak-temp").removeClass("hide");
       bake.TotalSum();
       $("#steak-bakes-qty").text("Bakes: " + bake.steakBake);
-      $("#steak-bakes-ttl").text("Steak Total: $" + steakBakeTTL);
+      $("#steak-bakes-ttl").text("Steak Total: $" + bake.steakBakeTTL);
       $("#total-ttl").text("$" + bake.total);
     }
 });
@@ -122,7 +122,7 @@ $("#chicken-bakes-input1").on("change keyup paste", function(){
     if (bake.chickenBake > 0) {
       bake.TotalSum();
       $("#chicken-bakes-qty").text("Bakes: " + bake.chickenBake);
-      $("#chicken-bakes-ttl").text("Chicken Total: $" + chickenBakeTTL);
+      $("#chicken-bakes-ttl").text("Chicken Total: $" + bake.chickenBakeTTL);
       $("#total-ttl").text("$" + bake.total);
     }
 });
@@ -132,7 +132,7 @@ $("#extra-clams-input1").on("change keyup paste", function(){
     if (bake.extraClams > 0) {
       bake.TotalSum();
       $("#extra-clams-qty").text("Extra Dozen Clams: " + bake.extraClams);
-      $("#extra-clams-ttl").text("Extra Clam Total: $" + extraClamsTTL);
+      $("#extra-clams-ttl").text("Extra Clam Total: $" + bake.extraClamsTTL);
       $("#total-ttl").text("$" + bake.total);
     }
 });
