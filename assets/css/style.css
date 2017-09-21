@@ -1,5 +1,5 @@
 #title {
-	font-size: 50px;
+	font-size: 45px;
 	color: white;
 }
 
@@ -12,15 +12,17 @@
 .info-notice {
 	color: white;
 	text-align: center;
+	font-size: 16px;
 }
 
 #body-background-img {
-	min-height: 2000px;
-	min-width: 1500px;
+	/*height: 100%;*/
+	/*width: 100%;*/
 	background-color: black;
 	background-image: url("../images/tent.jpg");
 	background-repeat: no-repeat;
-	margin: 50px;
+	background-size: 100%;
+	/*margin: 50px;*/
 }
 
 .form-group {
@@ -28,7 +30,7 @@
 }
 
 .foot-note {
-	font-size: 10px;
+	font-size: 12px;
 }
 
 .list-group-item-heading {
@@ -40,5 +42,18 @@ label {
 }
 
 .payment-notice {
-	color: white;
+	color: #00BFFF;
+	text-align: left;
+}
+
+/*hr {
+	line-height: 2px;
+}
+*/
+
+.list {
+	background-color: #C0C0C0;
+	color: black;
+	text-align: center;
+	font-weight: bold;
 }

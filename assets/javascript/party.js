@@ -35,7 +35,7 @@ $("#sign-up-form-id").on('submit', function(event) {
 
   form = $(this);
   form.parsley().validate();
-
+  var sumSteakBakes = 0;
 
   if(form.parsley().isValid()) {
 
@@ -49,24 +49,27 @@ $("#sign-up-form-id").on('submit', function(event) {
     bake.medium = $("#medium").find(":selected").text();
     bake.medWell = $("#med-well").find(":selected").text();
     bake.well = $("#well").find(":selected").text();
-
-    var newAttendee = {
-  		steakBake: bake.steakBake,
-      rare: bake.rare,
-      medRare: bake.medRare,
-      medium: bake.medium,
-      medWell: bake.medWell,
-      well: bake.well,
-  		chickenBake: bake.chickenBake,
-  		extraClams: bake.extraClams,
-  		total: bake.total,
-  		firstName : firstName,
-    	lastName : lastName,
-    	email : email,
-    	phone : phone,
-	};
-	database.ref().child(userName).set(newAttendee);
-
+    sumSteakBakes = parseFloat(bake.rare) + parseFloat(bake.medRare) + parseFloat(bake.medium) + parseFloat(bake.medWell) + parseFloat(bake.well);
+    if (parseFloat(sumSteakBakes) !== parseFloat(bake.steakBake)) {
+      alert("Your Steak and Cooking Temp QTY's are off.  Double check them please!")
+    }
+    else {
+      var newAttendee = {
+    		steakBake: bake.steakBake,
+        rare: bake.rare,
+        medRare: bake.medRare,
+        medium: bake.medium,
+        medWell: bake.medWell,
+        well: bake.well,
+    		chickenBake: bake.chickenBake,
+    		extraClams: bake.extraClams,
+    		total: bake.total,
+    		firstName : firstName,
+      	lastName : lastName,
+      	email : email,
+      	phone : phone,
+  	 };
+	   database.ref().child(userName).set(newAttendee);
 
 //ONCE THE REST IS WORKING UNCOMMNET THIS SECTION
     // emailjs.init("user_3nudfluVS4TNdqBpf3Gf3");
@@ -86,9 +89,8 @@ $("#sign-up-form-id").on('submit', function(event) {
     //});
 
      window.location.reload(false); 
-//   } else {
-//      alert("Invalid Form");//This can't really happen, but I put it in there anyway
-   }
+    }
+  }
  });
 
 $("#steak-bakes-input1").on("change keyup paste", function(){
