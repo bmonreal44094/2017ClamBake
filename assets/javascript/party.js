@@ -80,7 +80,6 @@ $("#sign-up-form-id").on('submit', function(event) {
 
       //Submits emails to the emailjs form website
       emailjs.init("user_3nudfluVS4TNdqBpf3Gf3");
-      alert("in the emaijs function");
         emailjs.send("default_service","2017_clambake",{
           name:userName,
           email:email,
