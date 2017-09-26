@@ -49,7 +49,7 @@ $("#sign-up-form-id").on('submit', function(event) {
     var lastName = $('#last-name-input').val().trim();
     var email = $('#email-input').val().trim();
     var phone = $('#phone-input').val().trim();
-    var userName = firstName + lastName;
+    var userName = firstName + " " + lastName;
     bake.rare = $("#rare").find(":selected").text();
     bake.medRare = $("#med-rare").find(":selected").text();
     bake.medium = $("#medium").find(":selected").text();
